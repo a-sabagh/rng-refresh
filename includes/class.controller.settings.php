@@ -13,7 +13,7 @@ class refresh_setting {
     }
 
     public function general_setting_section_top($args) {
-        _e("check post types you want to show refresh metabox in edit panels");
+        _e("check post types you want to show refresh metabox in edit panels","rng-refresh");
     }
 
     public function general_setting_active_post_type($args) {
@@ -40,7 +40,7 @@ class refresh_setting {
     public function general_settings_init() {
         register_setting("refresh_general_setting", "refresh_general_setting_option");
         add_settings_section(
-                "refresh-general-settings-top", __("refresh plugin settings"), array($this, "general_setting_section_top"), "refresh_general_setting"
+                "refresh-general-settings-top", __("refresh plugin settings","rng-refresh"), array($this, "general_setting_section_top"), "refresh_general_setting"
         );
         add_settings_field(
                 "refresh-active-post-type", __("Refresh permission", "rng-refresh"), array($this, "general_setting_active_post_type"), "refresh_general_setting", "refresh-general-settings-top", array(
