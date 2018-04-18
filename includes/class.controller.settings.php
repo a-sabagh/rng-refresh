@@ -29,7 +29,10 @@ class refresh_setting {
         unset($post_types[$key]);
         foreach ($post_types as $post_type):
             ?>
-            <label><?php echo $post_type ?><input type="checkbox" name="refresh_general_setting_option[<?php echo $args['name']; ?>][]" <?php echo (in_array($post_type, $values)) ? "checked" : ""; ?> value="<?php echo $post_type; ?>" ></label>
+            <label>
+                <?php echo $post_type ?>&nbsp;<input type="checkbox" name="refresh_general_setting_option[<?php echo $args['name']; ?>][]" <?php echo (in_array($post_type, $values)) ? "checked" : ""; ?> value="<?php echo $post_type; ?>" >
+            </label>
+            <br>
             <?php
         endforeach;
     }
@@ -60,7 +63,7 @@ class refresh_setting {
     public function configuration_notices() {
         $dismiss = get_option("rng_refresh_configure_dismiss");
         if (!$dismiss) {
-            $output = sprintf(__('<div class="updated"><p>RNG_refresh is activated, you may need to configure it to work properly. <a href="%s">Go to Settings page</a> &ndash; <a href="%s">Dismiss</a></p></div>', 'rng-refresh'), admin_url('admin.php?page=refresh-settings'), add_query_arg('rng_refres_dismis_notice', 'true'));
+            $output = '<div class="updated"><p>' . __('RNG_refresh is activated, you may need to configure it to work properly.','rng-refresh') . ' <a href="' .admin_url('admin.php?page=refresh-settings') . '">' . __('Go to Settings page','rng-refresh') . '</a> &ndash; <a href="' .  add_query_arg('rng_refres_dismis_notice', 'true') . '">' . __('Dismiss','rng-refresh') . '</a></p></div>';
             echo $output;
         }
     }
