@@ -43,12 +43,13 @@ class refresh_setting {
                 "refresh-general-settings-top", __("refresh plugin settings","rng-refresh"), array($this, "general_setting_section_top"), "refresh_general_setting"
         );
         add_settings_field(
-                "refresh-active-post-type", __("Refresh permission", "rng-refresh"), array($this, "general_setting_active_post_type"), "refresh_general_setting", "refresh-general-settings-top", array(
-            "label_for" => "refrsh-active-post-type",
-            "name" => "refresh-active-post-type",
-            "class" => "regular-text",
-            "custom_data" => "refresh-active-post-type"
-                )
+                "refresh-active-post-type", __("Refresh permission", "rng-refresh"), array($this, "general_setting_active_post_type"), "refresh_general_setting", "refresh-general-settings-top",
+                array(
+                    "label_for" => "refrsh-active-post-type",
+                    "name" => "refresh-active-post-type",
+                    "class" => "regular-text",
+                    "custom_data" => "refresh-active-post-type"
+                     )
         );
     }
 
