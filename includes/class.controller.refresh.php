@@ -11,6 +11,10 @@ class refresh_controller {
         }
     }
 
+    /**
+     * add refresh meta tag if allowed
+     * @global Object $post
+     */
     public function refresh_public() {
         global $post;
         $post_id = $post->ID;
@@ -21,6 +25,9 @@ class refresh_controller {
         }
     }
 
+    /**
+     * initialize refresh metabox in admin panel
+     */
     public function metaboxes_init() {
         $option = get_option("refresh_general_setting_option");
         $active_flag = FALSE;
@@ -33,13 +40,18 @@ class refresh_controller {
             $post_types = array('page');
             $active_flag = TRUE;
         }
-        if($active_flag){
+        if ($active_flag) {
             add_meta_box("refresh_init", __("Refresh Settings", "rng-refresh"), array($this, 'refresh_metabox_input'), $post_types, "side", "low");
         }
     }
 
+    /**
+     * get string time from metabox and convert to second
+     * @param String $string
+     * @return 
+     */
     public function splite_second($string) {
-        $time_arr = explode(":", $string);
+        $time_arr = array_map('intval', explode(":", $string));
         $hour = current($time_arr);
         $miniutes = next($time_arr);
         $seconds = next($time_arr);
@@ -47,6 +59,11 @@ class refresh_controller {
         return $output;
     }
 
+    /**
+     * get second from database and convert to string
+     * @param Integer $seconds
+     * @return String
+     */
     private function splite_second_reverse($seconds) {
         $second = $seconds % 60;
         $miniute = floor(($seconds % 3600 ) / 60);
@@ -54,6 +71,10 @@ class refresh_controller {
         return "{$hour}:{$miniute}:{$second}";
     }
 
+    /**
+     * content of metabox in single post admin screen
+     * @param Object $post
+     */
     public function refresh_metabox_input($post) {
         $post_id = $post->ID;
         wp_nonce_field(basename(__FILE__), 'rng_refresh');
@@ -62,13 +83,15 @@ class refresh_controller {
         require_once RNGRF_ADM . 'metabox-refresh.php';
     }
 
+    /**
+     * update refresh metabox callback
+     * @param Integer $post_id
+     */
     public function metaboxes_save($post_id) {
         $is_autosave = wp_is_post_autosave($post_id);
         $is_revision = wp_is_post_revision($post_id);
         $is_valid_nonce = (isset($_POST['rng_refresh']) && wp_verify_nonce($_POST['rng_refresh'], basename(__FILE__))) ? TRUE : FALSE;
-        if ($is_autosave || $is_revision || !$is_valid_nonce) {
-            return;
-        } else {
+        if (!$is_autosave || !$is_revision || $is_valid_nonce) {
             $refresh_time = $this->splite_second($_POST['rngrf_refresh_time']);
             update_post_meta($post_id, 'rngrf_is_refresh_active', $_POST['rngrf_is_refresh_active']);
             update_post_meta($post_id, 'rngrf_refresh_time', $refresh_time);
