@@ -4,9 +4,22 @@ defined('ABSPATH') || exit;
 
 class refresh_init {
 
+    /**
+     * plugin version
+     * @var Integer
+     */
     public $version;
-    public $slug;
 
+    /**
+     * plugin slug
+     * @var String
+     */
+    public $slug;
+    /**
+     * mapping version and slug and Hooks
+     * @param Integer $version
+     * @param String $slug
+     */
     public function __construct($version, $slug) {
         $this->version = $version;
         $this->slug = $slug;
