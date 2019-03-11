@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 class refresh_init {
 
     public $version;
@@ -18,6 +20,7 @@ class refresh_init {
      */
     public function plugins_loaded() {
         load_plugin_textdomain($this->slug, false, RNGRF_PRT . "/languages");
+        require_once trailingslashit(__DIR__) . "translate.php";
     }
 
     /**

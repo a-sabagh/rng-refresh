@@ -9,6 +9,10 @@
   Text Domain: rng-refresh
  */
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
 define(RNGRF_PRU,plugin_basename( __FILE__ ));  
 define(RNGRF_PDU, plugin_dir_url(__FILE__));   //http://localhost:8888/rng-plugin/wp-content/plugins/rng-refresh/
 define(RNGRF_PRT, basename(__DIR__));          //rng-refresh.php

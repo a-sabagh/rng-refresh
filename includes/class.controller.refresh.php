@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 class refresh_controller {
 
     public function __construct() {
