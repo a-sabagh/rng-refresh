@@ -114,7 +114,7 @@ class refresh_controller {
         $is_revision = wp_is_post_revision($post_id);
         $is_valid_nonce = (isset($_POST['rng_refresh']) && wp_verify_nonce($_POST['rng_refresh'], basename(__FILE__))) ? TRUE : FALSE;
 
-        if (!$is_autosave || !$is_revision || $is_valid_nonce) {
+        if (!$is_autosave and !$is_revision and $is_valid_nonce) {
             $refresh_time = $this->splite_second($refresh_time);
             update_post_meta($post_id, 'rngrf_is_refresh_active', $refresh_active);
             update_post_meta($post_id, 'rngrf_refresh_time', $refresh_time);

@@ -5,13 +5,14 @@ defined('ABSPATH') || exit;
 class refresh_setting {
 
     public function __construct() {
-        if (is_admin()) {
-            add_action("admin_init", array($this, "general_settings_init"));
-            add_action("admin_menu", array($this, "admin_menu"));
-            add_action("admin_notices", array($this, "configuration_notices"));
-            add_action("admin_init", array($this, "dismiss_configuration"));
-            add_filter('plugin_action_links_' . RNGRF_PRU, array($this, 'add_setting_link'));
-        }
+        if (!is_admin()) {
+			return;
+		}
+		add_action("admin_init", array($this, "general_settings_init"));
+		add_action("admin_menu", array($this, "admin_menu"));
+		add_action("admin_notices", array($this, "configuration_notices"));
+		add_action("admin_init", array($this, "dismiss_configuration"));
+		add_filter('plugin_action_links_' . RNGRF_PRU, array($this, 'add_setting_link'));
     }
 
     /**
@@ -86,11 +87,19 @@ class refresh_setting {
             echo $output;
         }
     }
+	/**
+	 * check if click on dismiss link
+	 * @param String notice
+	 * @param String page
+	 */
+	public is_click_configure_dismis($notice,$page){
+		return (isset($notice) and $notice == "true") or ( isset($page) and $page == "refresh-settings" );
+	}
     /**
      * dissmiss configuration notice action
      */ 
     public function dismiss_configuration() {
-        if ((isset($_GET['rng_refres_dismis_notice']) and $_GET['rng_refres_dismis_notice'] == "true") or ( isset($_GET['page']) and $_GET['page'] == "refresh-settings" )) {
+        if ($this->is_click_configure_dismis($_GET['rng_refres_dismis_notice'],$_GET['page'])) {
             update_option("rng_refresh_configure_dismiss", 1);
         }
     }
