@@ -92,7 +92,7 @@ class refresh_setting {
 	 * @param String notice
 	 * @param String page
 	 */
-	public is_click_configure_dismis($notice,$page){
+	public function is_click_configure_dismis($notice,$page){
 		return (isset($notice) and $notice == "true") or ( isset($page) and $page == "refresh-settings" );
 	}
     /**
