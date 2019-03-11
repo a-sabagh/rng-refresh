@@ -26,9 +26,11 @@ class refresh_init {
     /**
      * admin enqueue script
      */
-    public function admin_enequeue_scripts() {
-        wp_enqueue_style('rngrf-admin-style', RNGRF_PDU . 'assets/css/admin-style.css');
-        wp_enqueue_script('rngrf-admin-script', RNGRF_PDU . 'assets/js/admin-script.js', array('jquery'), '', TRUE);
+    public function admin_enequeue_scripts($hook) {
+        if ($hook == 'post.php') {
+            wp_enqueue_style('rngrf-admin-style', RNGRF_PDU . 'assets/css/admin-style.css');
+            wp_enqueue_script('rngrf-admin-script', RNGRF_PDU . 'assets/js/admin-script.js', array('jquery'), '', TRUE);
+        }
     }
 
     /**
