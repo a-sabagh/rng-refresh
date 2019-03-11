@@ -43,7 +43,7 @@ class refresh_controller {
             $active_flag = TRUE;
         }
         if ($active_flag) {
-            add_meta_box("refresh_init", __("Refresh Settings", "rng-refresh"), array($this, 'refresh_metabox_input'), $post_types, "side", "low");
+            add_meta_box("refresh_init", esc_html__("Refresh Settings", "rng-refresh"), array($this, 'refresh_metabox_input'), $post_types, "side", "low");
         }
     }
 

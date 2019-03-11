@@ -1,85 +1,105 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-18 16:33+0430\n"
-"PO-Revision-Date: 2018-04-18 16:47+0430\n"
+"POT-Creation-Date: 2019-03-11 17:12+0330\n"
+"PO-Revision-Date: 2019-03-11 17:14+0330\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-KeywordsList: __;_e\n"
-"Last-Translator: \n"
-"Language: fa\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/metabox-refresh.php:1
+#: admin/metabox-refresh.php:6
 msgid "Active Refreshing :"
 msgstr "فعال کردن تازه سازی :"
 
-#: admin/metabox-refresh.php:3
+#: admin/metabox-refresh.php:8
 msgid "on"
 msgstr "روشن"
 
-#: admin/metabox-refresh.php:4
+#: admin/metabox-refresh.php:9
 msgid "off"
 msgstr "خاموش"
 
-#: admin/metabox-refresh.php:7
+#: admin/metabox-refresh.php:12
 msgid "Refresh Sycle Time :"
 msgstr "سیکل زمان تازه سازی:"
 
-#: admin/metabox-refresh.php:9
+#: admin/metabox-refresh.php:14
 msgid "Pattern: "
 msgstr "الگو : "
 
-#: admin/metabox-refresh.php:9
+#: admin/metabox-refresh.php:14
 msgid "(hour:minutes:second)"
 msgstr "(ثانیه : دقیقه : ساعت)"
 
-#: admin/setting-panel.php:6
+#: admin/setting-panel.php:10
 msgid "Settings saved"
 msgstr "تنظیمات ذخیره شد"
 
-#: admin/setting-panel.php:8
+#: admin/setting-panel.php:12
 msgid "Error with saving"
 msgstr "خطا در ذخیره سازی"
 
-#: admin/setting-panel.php:17
+#: admin/setting-panel.php:21
 msgid "save"
 msgstr "ذخیره"
 
-#: includes/class.controller.refresh.php:37
-#: includes/class.controller.settings.php:56
+#: includes/class.controller.refresh.php:46
+#: includes/class.controller.settings.php:69
 msgid "Refresh Settings"
 msgstr "تنظیمات تازه سازی"
 
-#: includes/class.controller.settings.php:16
+#: includes/class.controller.settings.php:22
 msgid "check post types you want to show refresh metabox in edit panels"
-msgstr "پست تایپ هایی که قصد دارید متاباکس تازه سازی در آن ها نمایش داده شود را انتخاب کنید"
+msgstr ""
+"پست تایپ هایی که قصد دارید متاباکس تازه سازی در آن ها نمایش داده شود را "
+"انتخاب کنید"
 
-#: includes/class.controller.settings.php:43
+#: includes/class.controller.settings.php:53
 msgid "refresh plugin settings"
 msgstr "تنظیمات تازه سازی"
 
-#: includes/class.controller.settings.php:46
+#: includes/class.controller.settings.php:56
 msgid "Refresh permission"
 msgstr "اجازه برای تازه سازی"
 
-#: includes/class.controller.settings.php:66
+#: includes/class.controller.settings.php:85
 msgid "RNG_refresh is activated, you may need to configure it to work properly."
-msgstr "‫RNG_Refresh فعال است، ممکن است لازم باشد آن را پیکربندی کنید تا به درستی کار کند."
+msgstr ""
+"‫RNG_Refresh فعال است، ممکن است لازم باشد آن را پیکربندی کنید تا به درستی کار "
+"کند."
 
-#: includes/class.controller.settings.php:66
+#: includes/class.controller.settings.php:85
 msgid "Go to Settings page"
 msgstr "رفتن به تنظیمات"
 
-#: includes/class.controller.settings.php:66
+#: includes/class.controller.settings.php:85
 msgid "Dismiss"
 msgstr "انصراف"
 
-#: includes/class.controller.settings.php:79
+#: includes/class.controller.settings.php:104
 msgid "Settings"
 msgstr "تنظیمات"
+
+#: includes/translate.php:6
+msgid "rng-refresh"
+msgstr "تازه سازی اوتوماتیک"
+
+#: includes/translate.php:7
+msgid "Abolfazl Sabagh"
+msgstr "ابوالفضل صباغ"
+
+#: includes/translate.php:8
+msgid ""
+"WordPress Plugin that refreshes the single template of public post types with "
+"a synchronism time period."
+msgstr ""
+"پلاگین وردپرس که به صورت اوتوماتیک یک صفحه داخلی از هر پست تایپی که شما "
+"بخواهید را با یک دوره زمان خاص تازه سازی می کند."
