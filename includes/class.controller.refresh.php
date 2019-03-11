@@ -90,12 +90,17 @@ class refresh_controller {
      * @param Integer $post_id
      */
     public function metaboxes_save($post_id) {
+        
+        $refresh_time = sanitize_text_field($_POST['rngrf_refresh_time']);
+        $refresh_active = sanitize_text_field($_POST['rngrf_is_refresh_active']);
+        
         $is_autosave = wp_is_post_autosave($post_id);
         $is_revision = wp_is_post_revision($post_id);
         $is_valid_nonce = (isset($_POST['rng_refresh']) && wp_verify_nonce($_POST['rng_refresh'], basename(__FILE__))) ? TRUE : FALSE;
+        
         if (!$is_autosave || !$is_revision || $is_valid_nonce) {
-            $refresh_time = $this->splite_second($_POST['rngrf_refresh_time']);
-            update_post_meta($post_id, 'rngrf_is_refresh_active', $_POST['rngrf_is_refresh_active']);
+            $refresh_time = $this->splite_second($refresh_time);
+            update_post_meta($post_id, 'rngrf_is_refresh_active', $refresh_active);
             update_post_meta($post_id, 'rngrf_refresh_time', $refresh_time);
         }
     }

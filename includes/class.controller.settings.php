@@ -19,7 +19,7 @@ class refresh_setting {
      * @param Array $args
      */
     public function general_setting_section_top($args) {
-        _e("check post types you want to show refresh metabox in edit panels", "rng-refresh");
+        esc_html_e("check post types you want to show refresh metabox in edit panels", "rng-refresh");
     }
 
     /**
@@ -50,10 +50,10 @@ class refresh_setting {
     public function general_settings_init() {
         register_setting("refresh_general_setting", "refresh_general_setting_option");
         add_settings_section(
-                "refresh-general-settings-top", __("refresh plugin settings", "rng-refresh"), array($this, "general_setting_section_top"), "refresh_general_setting"
+                "refresh-general-settings-top", esc_html__("refresh plugin settings", "rng-refresh"), array($this, "general_setting_section_top"), "refresh_general_setting"
         );
         add_settings_field(
-                "refresh-active-post-type", __("Refresh permission", "rng-refresh"), array($this, "general_setting_active_post_type"), "refresh_general_setting", "refresh-general-settings-top", array(
+                "refresh-active-post-type", esc_html__("Refresh permission", "rng-refresh"), array($this, "general_setting_active_post_type"), "refresh_general_setting", "refresh-general-settings-top", array(
             "label_for" => "refrsh-active-post-type",
             "name" => "refresh-active-post-type",
             "class" => "regular-text",
@@ -66,7 +66,7 @@ class refresh_setting {
      * Refresh settings submenu init
      */
     public function admin_menu() {
-        add_submenu_page('options-general.php', __("Refresh Settings", "rng-refresh"), __("Refresh Settings", "rng-refresh"), 'administrator', 'refresh-settings', array($this, "refresh_setting_panel"));
+        add_submenu_page('options-general.php', esc_html__("Refresh Settings", "rng-refresh"), esc_html__("Refresh Settings", "rng-refresh"), 'administrator', 'refresh-settings', array($this, "refresh_setting_panel"));
     }
 
     /**
@@ -82,7 +82,7 @@ class refresh_setting {
     public function configuration_notices() {
         $dismiss = get_option("rng_refresh_configure_dismiss");
         if (!$dismiss) {
-            $output = '<div class="updated"><p>' . __('RNG_refresh is activated, you may need to configure it to work properly.', 'rng-refresh') . ' <a href="' . admin_url('admin.php?page=refresh-settings') . '">' . __('Go to Settings page', 'rng-refresh') . '</a> &ndash; <a href="' . add_query_arg('rng_refres_dismis_notice', 'true') . '">' . __('Dismiss', 'rng-refresh') . '</a></p></div>';
+            $output = '<div class="updated"><p>' . esc_html__('RNG_refresh is activated, you may need to configure it to work properly.', 'rng-refresh') . ' <a href="' . admin_url('admin.php?page=refresh-settings') . '">' . esc_html__('Go to Settings page', 'rng-refresh') . '</a> &ndash; <a href="' . add_query_arg('rng_refres_dismis_notice', 'true') . '">' . esc_html__('Dismiss', 'rng-refresh') . '</a></p></div>';
             echo $output;
         }
     }
@@ -101,7 +101,7 @@ class refresh_setting {
      */
     public function add_setting_link($links) {
         $mylinks = array(
-            '<a href="' . admin_url('options-general.php?page=refresh-settings') . '">' . __("Settings", "rng-refresh") . '</a>',
+            '<a href="' . admin_url('options-general.php?page=refresh-settings') . '">' . esc_html__("Settings", "rng-refresh") . '</a>',
         );
         return array_merge($links, $mylinks);
     }

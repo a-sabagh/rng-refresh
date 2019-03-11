@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: rng-refresh
-  Description: wordpress plugin for refreshing single template of public post types with sync time with great feature like setting panel to set refresh metbox for your special post type
+  Description: WordPress Plugin that refreshes the single template of public post types with a synchronism time period.
   Version: 1.0
   Author: Abolfazl Sabagh
   Author URI: http://asabagh.ir
