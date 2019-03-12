@@ -82,10 +82,10 @@ class refresh_setting {
      */
     public function configuration_notices() {
         $dismiss = get_option("rng_refresh_configure_dismiss");
-        if (!$dismiss) {
-            $output = '<div class="updated"><p>' . esc_html__('RNG_refresh is activated, you may need to configure it to work properly.', 'rng-refresh') . ' <a href="' . admin_url('admin.php?page=refresh-settings') . '">' . esc_html__('Go to Settings page', 'rng-refresh') . '</a> &ndash; <a href="' . add_query_arg('rng_refres_dismis_notice', 'true') . '">' . esc_html__('Dismiss', 'rng-refresh') . '</a></p></div>';
-            echo $output;
-        }
+        if ($dismiss) {
+			return;
+		}
+		echo '<div class="updated"><p>' . esc_html__('RNG_refresh is activated, you may need to configure it to work properly.', 'rng-refresh') . ' <a href="' . admin_url('admin.php?page=refresh-settings') . '">' . esc_html__('Go to Settings page', 'rng-refresh') . '</a> &ndash; <a href="' . add_query_arg('rng_refres_dismis_notice', 'true') . '">' . esc_html__('Dismiss', 'rng-refresh') . '</a></p></div>';
     }
 	/**
 	 * check if click on dismiss link
