@@ -33,7 +33,6 @@ class refresh_init {
      */
     public function plugins_loaded() {
         load_plugin_textdomain($this->slug, false, RNGRF_PRT . "/languages");
-        require_once trailingslashit(__DIR__) . "translate.php";
     }
 
     /**
@@ -53,6 +52,7 @@ class refresh_init {
     public function load_modules() {
         require_once 'class.controller.refresh.php';
         require_once 'class.controller.settings.php';
+	require_once trailingslashit(__DIR__) . "translate.php";
     }
 
 }
